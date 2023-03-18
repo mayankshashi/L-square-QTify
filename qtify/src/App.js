@@ -6,12 +6,6 @@ import Section from "./components/Section/Section";
 import { fetchTopSongs } from "./api/api";
 
 function App() {
-  // useEffect(() => {
-  //   fetchTopSongs().then((data) => {
-  //     console.log(data);
-  //   });
-  // }, []);
-
   return (
     <>
       <Navbar />
