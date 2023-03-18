@@ -1,8 +1,8 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import CarouselLeftNavigation from "./CarouselLeftNavigation/CarouselLeftNavigation";
-import CarouselRightNavigation from "./CarouselLeftNavigation/CarouselRightNavigation";
+import CarouselLeftNavigation from "./CarouselNavigation/CarouselLeftNavigation";
+import CarouselRightNavigation from "./CarouselNavigation/CarouselRightNavigation";
 
 function Carousel({ data, renderComponent }) {
   return (

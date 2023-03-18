@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import styles from "./Section.module.css";
 import Card from "../Card/Card";
 import Carousel from "../Carousel/Carousel";
+import Filter from "../Filter/Filter";
 
-function Section({ title, dataSource }) {
+function Section({ title, dataSource, filterSource, type }) {
   const [cards, setCards] = useState([]);
+  const [filters, setFilters] = useState([{ key: "all", label: "All" }]);
+  const [selectFilterIndex, setSelectFilterIndex] = useState(0);
   const [isShowAll, setIsShowAll] = useState(false);
 
   useEffect(() => {
@@ -12,6 +15,21 @@ function Section({ title, dataSource }) {
       setCards(data);
     });
   }, []);
+
+  useEffect(() => {
+    if (filterSource) {
+      filterSource().then((response) => {
+        const { data } = response;
+        setFilters([...filters, ...data]);
+      });
+    }
+  }, []);
+
+  const filteredCards = cards.filter((card) =>
+    selectFilterIndex !== 0
+      ? card.genre.key === filters[selectFilterIndex].key
+      : card
+  );
 
   const handleToggle = () => {
     setIsShowAll((prevState) => !prevState);
@@ -27,22 +45,29 @@ function Section({ title, dataSource }) {
           <h4>{!isShowAll ? "Show All" : "Collapse"}</h4>
         </div>
       </div>
+      {filterSource && (
+        <Filter
+          data={filters}
+          selectFilterIndex={selectFilterIndex}
+          setSelectFilterIndex={setSelectFilterIndex}
+        />
+      )}
       <div className={styles.cardsWrapper}>
         {isShowAll ? (
-          cards.map((card) => (
+          filteredCards.map((card) => (
             <Card
               data={{
                 title: card.title,
                 image: card.image,
                 follows: card.follows,
               }}
-              type="album"
+              type={type}
             />
           ))
         ) : (
           <Carousel
-            data={cards}
-            renderComponent={(data) => <Card data={data} type="album" />}
+            data={filteredCards}
+            renderComponent={(data) => <Card data={data} type={type} />}
           />
         )}
       </div>
