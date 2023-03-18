@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Card from "./components/Card/Card";
+import Section from "./components/Section/Section";
+import { fetchTopSongs } from "./api/api";
 
 function App() {
+  // useEffect(() => {
+  //   fetchTopSongs().then((data) => {
+  //     console.log(data);
+  //   });
+  // }, []);
+
   return (
     <>
       <Navbar />
       <Hero />
-      <Card
-        image="https://png.pngtree.com/png-clipart/20210829/original/pngtree-music-album-cover-modern-style-color-sns-png-image_6664686.jpg"
-        follows={100}
-        title={"Abstract"}
-      />
+      <Section title="Top Album" dataSource={fetchTopSongs} />
     </>
   );
 }

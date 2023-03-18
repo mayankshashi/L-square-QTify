@@ -22,6 +22,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   background-color: #121212;
+  color: #ffffff;
 }
 img,
 picture,
@@ -49,4 +50,8 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+.swiper-slide {
+  width: auto !important;
 }
