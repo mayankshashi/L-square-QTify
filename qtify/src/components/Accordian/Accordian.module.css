@@ -4,6 +4,13 @@
   font-size: 50px;
   margin-top: 32px;
 }
-.Accordian {
-  margin-top: 32px;
+
+.accordionContainer {
+  width: 60vw;
+  margin: auto;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+  margin-top: 24px;
+  border-radius: 10px;
 }

@@ -10,32 +10,30 @@ function Accordian() {
   return (
     <div>
       <h1 className={styles.content}>FAQ's</h1>
-      <div className={styles.Accordian}>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography>Is QTify free to use?</Typography>
-          </AccordionSummary>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
-          >
-            <Typography>Can I download and listen to songs offline?</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Sorry, unfortunately we don't provide the service to download any
-              songs.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-      </div>
+      <Accordion className={styles.accordionContainer}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Is QTify free to use?</Typography>
+        </AccordionSummary>
+      </Accordion>
+      <Accordion className={styles.accordionContainer}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography>Can I download and listen to songs offline?</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Sorry, unfortunately we don't provide the service to download any
+            songs.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
     </div>
   );
 }
