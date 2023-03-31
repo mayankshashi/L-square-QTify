@@ -17,3 +17,8 @@
   cursor: pointer;
   height: 48px;
 }
+.listElement {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
